@@ -1,6 +1,6 @@
 
 // Controlador para listar los géneros
-angular.module("jeviteca").controller("ListaGenerosCtrl", function($scope, $http) {
+angular.module("jeviteca").controller("ListaGenerosCtrl", function($scope, $http, Properties) {
 
 /*
     {
@@ -21,7 +21,7 @@ angular.module("jeviteca").controller("ListaGenerosCtrl", function($scope, $http
     */
 
     // Hacemos la petición de géneros, devolviendo el contenido del fichero json.
-    $http.get("resources/data/genres.json").then(
+    $http.get(Properties.backendUrlData + "genres.json").then(
 
         // La petición al servidor fue correcta.
         function(respuesta) {

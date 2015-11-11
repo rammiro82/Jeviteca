@@ -1,6 +1,6 @@
 
 // Controlador para listar los albumes
-angular.module("jeviteca").controller("ListaAlbumesCtrl", function($scope, $http) {
+angular.module("jeviteca").controller("ListaAlbumesCtrl", function($scope, $http, Properties) {
 
 
 
@@ -34,7 +34,7 @@ angular.module("jeviteca").controller("ListaAlbumesCtrl", function($scope, $http
      */
 
     // Hacemos la petición de albumes, devolviendo el contenido del fichero json.
-    $http.get("resources/data/albums.json").then(
+    $http.get(Properties.backendUrlData + "albums.json").then(
 
         // La petición al servidor fue correcta.
         function(respuesta) {

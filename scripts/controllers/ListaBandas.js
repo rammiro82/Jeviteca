@@ -1,6 +1,6 @@
 
 // Controlador para listar los albumes
-angular.module("jeviteca").controller("ListaBandasCtrl", function($scope, $http) {
+angular.module("jeviteca").controller("ListaBandasCtrl", function($scope, $http, Properties) {
 
 /*
     {
@@ -34,7 +34,7 @@ angular.module("jeviteca").controller("ListaBandasCtrl", function($scope, $http)
 */
 
     // Hacemos la petición de bandas, devolviendo el contenido del fichero json.
-    $http.get("resources/data/bands.json").then(
+    $http.get(Properties.backendUrlData + "bands.json").then(
 
         // La petición al servidor fue correcta.
         function(respuesta) {
