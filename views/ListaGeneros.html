@@ -1,0 +1,11 @@
+<div>
+    <!-- Pintamos una tabla para mostrar los generos -->
+    <table class="table">
+        <!-- Con la directiva ngRepeat iteramos sobre la colección
+        de generos para pintar cada línea (genero) de la tabla -->
+        <tr ng-repeat="genero in generos">
+            <td>{{ genero.name }}</td>
+            <td>{{ genero.albums.title }}</td>
+        </tr>
+    </table>
+</div>

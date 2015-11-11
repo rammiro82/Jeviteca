@@ -1,0 +1,16 @@
+<div>
+    <!-- Pintamos una tabla para mostrar los albumes -->
+    <table class="table">
+        <!-- Con la directiva ngRepeat iteramos sobre la colección
+        de albumes para pintar cada línea (album) de la tabla -->
+        <tr ng-repeat="album in albumes">
+            <td>
+                <!-- Con la directiva ngIf pintamos el elemento que la usa cuando su conftenido
+                resuelve como "true". En caso contrario, el elemento no se pinta -->
+                <img ng-src="resources/img/{{album.image}}" ng-if="album.image" alt="Imagen" width="64" class="img-rounded" />
+            </td>
+            <td>{{ album.title }}</td>
+            <td>{{ album.band.name }}</td>
+        </tr>
+    </table>
+</div>

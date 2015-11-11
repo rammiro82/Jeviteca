@@ -1,0 +1,16 @@
+<div>
+    <!-- Pintamos una tabla para mostrar las bandas -->
+    <table class="table">
+        <!-- Con la directiva ngRepeat iteramos sobre la colección
+        de bandas para pintar cada línea (banda) de la tabla -->
+        <tr ng-repeat="banda in bandas">
+            <td>
+                <!-- Con la directiva ngIf pintamos el elemento que la usa cuando su conftenido
+                resuelve como "true". En caso contrario, el elemento no se pinta -->
+                <img ng-src="resources/img/{{banda.image}}" ng-if="banda.image" alt="Imagen" width="64" class="img-rounded" />
+            </td>
+            <td>{{ banda.name }}</td>
+            <td>{{ banda.origin }}</td>
+        </tr>
+    </table>
+</div>
