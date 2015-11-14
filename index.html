@@ -5,8 +5,10 @@
         <title>Jeviteca</title>
 
         <!-- Cargamos los estilos de Bootstrap -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+              integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
+              crossorigin="anonymous">
+        <link rel="stylesheet" href="styles/loading-bar.min.css"/>
     </head>
     <body ng-app="jeviteca">
 
@@ -17,32 +19,40 @@
 
             <nav>
                 <ul class="nav nav-tabs">
-                    <li role="presentation">
+                    <li role="presentation" ng-class="{ 'active': rutaAlbumes() }">
                         <a href="#/albumes">Álbumes</a>
                     </li>
-                    <li>
+                    <li role="presentation" ng-class="{ 'active': rutaBandas() }">
                         <a href="#/bandas">Bandas</a>
                     </li>
-                    <li>
+                    <li role="presentation" ng-class="{ 'active': rutaGeneros() }">
                         <a href="#/generos">Géneros</a>
                     </li>
                 </ul>
             </nav>
 
             <!-- Contenedor de las vistas -->
-            <section ng-view></section>
+            <section ng-view>
+
+            </section>
 
         </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
 
-        <script src="scripts/app.js"></script>
+        <script src="vendor/loading-bar.min.js"></script>
 
-        <script src="scripts/constants/Properties.js"></script>
+        <script src="scripts/app.js"></script>
 
         <script src="scripts/controllers/ListaAlbumes.js"></script>
         <script src="scripts/controllers/ListaBandas.js"></script>
         <script src="scripts/controllers/ListaGeneros.js"></script>
+
+        <script src="scripts/constants/Properties.js"></script>
+
+        <script src="scripts/providers/GenresProvider.js"></script>
+        <script src="scripts/providers/AlbumsProvider.js"></script>
+        <script src="scripts/providers/BandsProvider.js"></script>
     </body>
 </html>
