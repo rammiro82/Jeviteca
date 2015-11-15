@@ -1,5 +1,5 @@
 
-angular.module("jeviteca", ["ngRoute", "angular-loading-bar", "ui.bootstrap"]);
+angular.module("jeviteca", ["ngRoute", "angular-loading-bar", "ui.bootstrap", "LocalStorageModule"]);
 
 angular.module("jeviteca").config(function(AlbumsBackendProvider, BandsBackendProvider, GenresBackendProvider, Properties) {
     AlbumsBackendProvider.habilitarPeticionesCors();
