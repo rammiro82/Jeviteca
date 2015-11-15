@@ -16,7 +16,6 @@
         <tr ng-repeat="banda in bandas | filter:{name: filtroPorBanda}" elemento-banda banda="banda">
 
         </tr>
-    </table>
     <uib-pagination
         ng-change="paginador.cambioDePagina()"
         ng-model="paginador.paginaActual"
@@ -28,4 +27,5 @@
         previous-text="&lt;"
         next-text="&gt;"
         ></uib-pagination>
+    </table>
 </div>
