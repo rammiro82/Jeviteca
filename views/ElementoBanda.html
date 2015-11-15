@@ -1,0 +1,20 @@
+<tr>
+    <td>
+        <!-- Con la directiva ngIf pintamos el elemento que la usa cuando su conftenido
+        resuelve como "true". En caso contrario, el elemento no se pinta -->
+        <img ng-src="resources/img/{{banda.image}}" ng-if="banda.image" alt="Imagen" width="64" class="img-rounded" />
+    </td>
+    <td>{{ banda.name }}</td>
+    <td>{{ banda.origin }}</td>
+    <td>
+        <div class="row">
+            <div ng-repeat="album in banda.albums">
+                <div class="col-xs-6 col-md-3">
+                    <a href="#" class="thumbnail">
+                        <img ng-src="resources/img/{{album.image}}" ng-if="album.image" alt="{{album.title}}" width="128" class="img-rounded">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </td>
+</tr>
