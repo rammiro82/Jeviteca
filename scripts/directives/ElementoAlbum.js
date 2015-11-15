@@ -1,3 +1,10 @@
-/**
- * Created by ramiro on 15/11/15.
- */
+
+angular.module("jeviteca").directive("elementoAlbum", function(){
+    return {
+        restrict: "AE",
+        templateUrl: "views/ElementoAlbum.html",
+        scope:{
+            album: "="
+        }
+    };
+});
