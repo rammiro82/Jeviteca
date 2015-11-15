@@ -2,8 +2,37 @@
 // Controlador para listar los albumes
 angular.module("jeviteca").controller("ListaBandasCtrl", function($scope, Bandas, BandsBackend) {
 
-    $scope.bandas = Bandas.data;
+    var bandas = Bandas.data;
 
+    //$scope.bandas = bandas;
+
+    // Establecemos las propiedades del paginador.
+    $scope.paginador = {
+
+        // Cambiamos de página.
+        cambioDePagina: function() {
+
+            // Obtenemos el primer y último elemento de la página a mostrar.
+            var primero = ($scope.paginador.paginaActual - 1) * $scope.paginador.elementosPorPagina;
+            var ultimo = primero + $scope.paginador.elementosPorPagina;
+
+            // Establecemos en la vista la página seleccionada.
+            $scope.bandas = bandas.slice(primero, ultimo);
+        },
+
+        // Página actual.
+        paginaActual: 1,
+
+        // Total de elementos.
+        totalElementos: bandas.length,
+
+        // Tamaño de página.
+        elementosPorPagina: 5
+    };
+
+
+    // Forzamos el cambio de página para que traiga la primera al entrar a la vista.
+    $scope.paginador.cambioDePagina();
 
     $scope.meGusta = function(band){
         BandsBackend.favorito(band.id).then(
