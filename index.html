@@ -8,12 +8,13 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
               integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ=="
               crossorigin="anonymous">
+
         <link rel="stylesheet" href="styles/loading-bar.min.css"/>
         <link rel="stylesheet" href="styles/isotope.css"/>
+
         <link data-require="font-awesome@*" data-semver="4.3.0" rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" />
     </head>
     <body ng-app="jeviteca">
-
         <div class="container">
             <header>
                 <h1>Jeviteca</h1>
@@ -40,16 +41,16 @@
 
         </div>
 
+        <script src='vendor/jquery.min.js'></script>
+        <script src='vendor/isotope.pkgd.js'></script>
+
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular.min.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.7/angular-route.min.js"></script>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.14.3/ui-bootstrap-tpls.min.js"></script>
 
-
         <script src="vendor/loading-bar.min.js"></script>
-        <script src="vendor/isotope.pkgd.js"></script>
         <script src="vendor/angular-local-storage.js"></script>
 
         <script src="scripts/app.js"></script>
@@ -68,5 +69,37 @@
         <script src="scripts/directives/ElementoAlbum.js"></script>
 
         <script src="scripts/services/FavoriteService.js"></script>
+        <script>
+
+            $(window).load(function () {
+                var qsRegex;
+                var $grid = $('.grid').isotope({
+                    itemSelector: '.element-item',
+                    layoutMode: 'fitRows',
+                    filter: function () {
+                        return qsRegex ? $(this).text().match(qsRegex) : true;
+                    }
+                });
+                var $quicksearch = $('.quicksearch').keyup(debounce(function () {
+                    qsRegex = new RegExp($quicksearch.val(), 'gi');
+                    $grid.isotope();
+                }, 200));
+
+                function debounce(fn, threshold) {
+                    var timeout;
+                    console.log(fn);
+                    return function debounced() {
+                        if (timeout) {
+                            clearTimeout(timeout);
+                        }
+                        function delayed() {
+                            fn();
+                            timeout = null;
+                        }
+                        timeout = setTimeout(delayed, threshold || 100);
+                    };
+                }
+            });
+        </script>
     </body>
 </html>

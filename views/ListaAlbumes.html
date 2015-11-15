@@ -2,9 +2,12 @@
 <header>
     <h2>Albumes</h2>
 </header>
-<p></p>
-<div class="grid isotope">
-    <div ng-repeat="album in albumes" elemento-album album="album">
+
+<p><input type="text" class="quicksearch" placeholder="Search"></p>
+
+<br/>
+<div class="grid">
+    <div class="element-item" ng-repeat="album in albumes" elemento-album album="album">
 
     </div>
 </div>

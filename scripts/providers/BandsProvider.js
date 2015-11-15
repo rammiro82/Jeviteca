@@ -20,10 +20,6 @@ angular.module("jeviteca").provider("BandsBackend", function($httpProvider){
                     return $http.get(urlBackend + "bands.json", {
                         cache: "true"
                     });
-                },
-
-                favorito: function(idBand){
-                    return $http.post(urlBackend + "/posts/" + idBand + "/like");
                 }
             };
         }]

@@ -1,22 +1,23 @@
-<div>
-    <div class="col-xs-6 col-md-3 element-item">
-        <div class="thumbnail" align="center">
-            <img ng-src="resources/img/{{album.image}}" ng-if="album.image" alt="{{album.title}}" width="128" class="img-rounded">
-            <div class="caption">
-                <h3 class="title">{{ ::album.title }}</h3>
-                <p class="year">{{ ::album.year }} - {{ ::album.band.name }}</p>
-                <p>
-                    <button id="btn_fav_{{ ::album.id }}" ng-click="markAs(!isFavorite)" >
-                        <i class="fa" ng-class="{'fa-heart' : isFavorite , 'fa-heart-o' : !isFavorite }"></i>
-                    </button>
 
-                    <!-- Modal -->
+<h3 class="title">{{ ::album.title }}</h3>
+<p class="year">{{ ::album.year }}</p>
+        <img ng-src="resources/img/{{album.image}}" ng-if="album.image" alt="{{album.title}}" width="128" class="img-rounded">
+        <div class="caption">
+                <button id="btn_fav_{{ ::album.id }}" ng-click="markAs(!isFavorite)" >
+                    <i class="fa" ng-class="{'fa-heart' : isFavorite , 'fa-heart-o' : !isFavorite }"></i>
+                </button>
+
+                <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal{{ ::album.id }}">
+                    + info
+                </button>
+                <!-- Modal -->
                 <div class="modal fade" id="myModal{{ ::album.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                                 <h4 class="modal-title" id="myModalLabel">{{ ::album.title }}</h4>
+                                <p class="genre">{{ ::album.genre.name }}</p>
                             </div>
                             <div class="modal-body">
                                 <div class="row">
@@ -36,15 +37,4 @@
                         </div>
                     </div>
                 </div>
-
-
-                <div>
-                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal{{ ::album.id }}">
-                        + info
-                    </button>
-                </div>
-                </p>
-            </div>
         </div>
-    </div>
-</div>

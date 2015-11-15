@@ -20,10 +20,6 @@ angular.module("jeviteca").provider("AlbumsBackend", function($httpProvider){
                     return $http.get(urlBackend + "albums.json", {
                         cache: "true"
                     });
-                },
-
-                favorito: function(idAlbum){
-                    return $http.post(urlBackend + "/posts/" + idAlbum + "/like");
                 }
             };
         }]

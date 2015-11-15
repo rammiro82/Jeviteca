@@ -20,10 +20,6 @@ angular.module("jeviteca").provider("GenresBackend", function($httpProvider){
                     return $http.get(urlBackend + "genres.json", {
                         cache: "true"
                     });
-                },
-
-                favorito: function(idGenre){
-                    return $http.post(urlBackend + "/posts/" + idGenre + "/like");
                 }
             };
         }]

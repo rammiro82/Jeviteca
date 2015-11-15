@@ -1,17 +1,9 @@
 
 // Controlador para listar los albumes
-angular.module("jeviteca").controller("ListaAlbumesCtrl", function($scope, Albumes, AlbumsBackend) {
+angular.module("jeviteca").controller("ListaAlbumesCtrl", function($scope, Albumes) {
 
     $scope.albumes = Albumes.data;
 
-
-    $scope.meGusta = function(album){
-        AlbumsBackend.favorito(album.id).then(
-            function(respuesta){
-                //albumes.likes++;
-            }
-        );
-    };
 });
 
 
