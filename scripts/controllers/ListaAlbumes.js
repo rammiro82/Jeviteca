@@ -1,6 +1,6 @@
 
 // Controlador para listar los albumes
-angular.module("jeviteca").controller("ListaAlbumesCtrl", function($scope, Albumes) {
+angular.module("jeviteca").controller("ListaAlbumesCtrl", function($scope, Albumes, Utilidades) {
 
     $scope.albumes = Albumes.data;
 

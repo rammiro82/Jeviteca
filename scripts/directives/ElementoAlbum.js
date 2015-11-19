@@ -25,7 +25,7 @@ angular.module("jeviteca").directive("elementoAlbum",  ["FavoriteService", funct
 
                 }
                 scope.isFavorite = type;
-            }
+            };
 
         }
     };

@@ -13,7 +13,9 @@
     <table class="table">
         <!-- Con la directiva ngRepeat iteramos sobre la colección
         de bandas para pintar cada línea (banda) de la tabla -->
-        <tr ng-repeat="banda in bandas | filter:{name: filtroPorBanda}" elemento-banda banda="banda">
+        <tr ng-repeat="banda in bandas | filter:{name: filtroPorBanda}"
+            elemento-banda
+            banda="banda">
 
         </tr>
     <uib-pagination

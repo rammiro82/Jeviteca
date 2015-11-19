@@ -1,6 +1,10 @@
 <tr>
-    <td>{{ banda.name }}</td>
-    <td>{{ banda.origin }}</td>
+    <td>{{ ::banda.name | BandaUppercase}}
+        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal{{ ::banda.id }}">
+            +
+        </button>
+    </td>
+    <td>{{ ::banda.origin }}</td>
     <td>
         <div class="row">
             <div ng-repeat="album in banda.albums">
@@ -12,4 +16,30 @@
             </div>
         </div>
     </td>
+
+    <!-- Modal -->
+    <div class="modal fade" id="myModal{{ ::banda.id }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel">{{ ::banda.name | BandaUppercase }}</h4>
+                    <p>Integrantes</p>
+                </div>
+                <div class="modal-body">
+                    <div ng-repeat="member in banda.members">
+                        <p>
+                            {{ $index + 1 }} .- {{ ::member.name }}
+                                <div ng-repeat="instrument in member.instruments">
+                                    <img src="resources/img/instruments/{{ instrument}}.png" alt="{{ instrument}}"/>
+                                </div>
+                        </p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </tr>

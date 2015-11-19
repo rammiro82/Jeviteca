@@ -1,6 +1,6 @@
 
 // Controlador para listar los albumes
-angular.module("jeviteca").controller("ListaBandasCtrl", function($scope, Bandas, BandsBackend) {
+angular.module("jeviteca").controller("ListaBandasCtrl", function($scope, Bandas, Utilidades) {
 
     var bandas = Bandas.data;
 
