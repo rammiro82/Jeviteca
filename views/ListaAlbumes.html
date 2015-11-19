@@ -3,11 +3,16 @@
     <h2>Albumes</h2>
 </header>
 
-<p><input type="text" class="quicksearch" placeholder="Search"></p>
+<form class="form-inline">
+    <div class="form-group">
+        <label for="filtroAlbum">Album: </label>
+        <input type="text" id="filtroAlbum" ng-model="filtroPorAlbum" />
+    </div>
+</form>
 
 <br/>
 <div class="grid">
-    <div class="element-item" ng-repeat="album in albumes" elemento-album album="album">
+    <div class="element-item" ng-repeat="album in albumes | filter:{title: filtroPorAlbum}" elemento-album album="album">
 
     </div>
 </div>
