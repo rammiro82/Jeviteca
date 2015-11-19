@@ -1,23 +1,16 @@
 
-angular.module("jeviteca").provider("GenresBackend", function($httpProvider){
-    var urlBackend= "";
+angular.module("jeviteca").provider("GenresBackend", function(){
+    var urlBackendGenres = "";
 
     return {
-
-        habilitarPeticionesCors: function(){
-            $httpProvider.defaults.headers.post = {};
-            $httpProvider.defaults.headers.put = {};
-            $httpProvider.defaults.headers.patch = {};
-        },
-
         establecerUrlBackend: function(valor){
-            urlBackend = valor;
+            urlBackendGenres = valor;
         },
 
         $get: ["$http", function($http){
             return{
                 listarTodosGenres: function(){
-                    return $http.get(urlBackend + "genres.json", {
+                    return $http.get(urlBackendGenres, {
                         cache: "true"
                     });
                 }

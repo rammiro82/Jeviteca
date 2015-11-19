@@ -1,32 +1,23 @@
 angular.module("jeviteca").service("FavoriteService",[function(){
 
-    var claveAppAlbum = "jeviteca_album_fav_";
 
     //Favorites functions
-    this.isLocalStorageEnable = function() {
+    this.isLocalStorageEnable = (typeof (Storage) !== "undefined");
 
-        if(typeof (Storage) !== "undefined"){
-            return true;
-        }
-        else{
-            return false;
-        }
-    };
-
-    this.isFavorite = function(scope){
-        var fav = localStorage.getItem(claveAppAlbum + scope.album.id);
+    this.isFavorite = function(scope, clave){
+        var fav = localStorage.getItem(clave + scope.album.id);
         return fav === "1";
     };
 
 
-    this.setFav = function(scope){
+    this.setFav = function(scope, clave){
 
-        localStorage.setItem(claveAppAlbum + scope.album.id,"1");
+        localStorage.setItem(clave + scope.album.id,"1");
     };
 
 
-    this.deleteFav = function(scope){
-        localStorage.removeItem(claveAppAlbum + scope.album.id);
+    this.deleteFav = function(scope, clave){
+        localStorage.removeItem(clave + scope.album.id);
     };
 
 }]);

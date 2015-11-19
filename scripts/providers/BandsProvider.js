@@ -1,23 +1,16 @@
 
-angular.module("jeviteca").provider("BandsBackend", function($httpProvider){
-    var urlBackend= "";
+angular.module("jeviteca").provider("BandsBackend", function(){
+    var urlBackendBands = "";
 
     return {
-
-        habilitarPeticionesCors: function(){
-            $httpProvider.defaults.headers.post = {};
-            $httpProvider.defaults.headers.put = {};
-            $httpProvider.defaults.headers.patch = {};
-        },
-
         establecerUrlBackend: function(valor){
-            urlBackend = valor;
+            urlBackendBands = valor;
         },
 
         $get: ["$http", function($http){
             return{
                 listarTodasBands: function(){
-                    return $http.get(urlBackend + "bands.json", {
+                    return $http.get(urlBackendBands, {
                         cache: "true"
                     });
                 }

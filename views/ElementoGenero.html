@@ -1,0 +1,21 @@
+<div class="panel-heading" role="tab" id="heading_{{ $index }}">
+    <h4 class="panel-title">
+        <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapse_{{ $index }}" aria-expanded="false" aria-controls="collapse_{{ $index }}">
+            {{ genero.name }}
+        </button>
+    </h4>
+</div>
+<div id="collapse_{{ $index }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading_{{ $index }}">
+    <div class="panel-body">
+
+        <div class="row">
+            <div ng-repeat="album in genero.albums">
+                <div class="col-xs-6 col-md-3">
+                    <div class="thumbnail">
+                        <img ng-src="resources/img/{{album.image}}" ng-if="album.image" alt="{{album.title}}" width="128" class="img-rounded">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

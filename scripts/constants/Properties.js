@@ -1,5 +1,7 @@
 
 angular.module("jeviteca").constant("Properties", {
-    backendUrlData: "resources/data/",
+    backendUrlDataAlbums: "resources/data/albums.json",
+    backendUrlDataBands: "resources/data/bands.json",
+    backendUrlDataGenres: "resources/data/genres.json",
     backendUrlImg: "resources/img/"
 });

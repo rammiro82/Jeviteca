@@ -33,14 +33,6 @@ angular.module("jeviteca").controller("ListaBandasCtrl", function($scope, Bandas
 
     // Forzamos el cambio de página para que traiga la primera al entrar a la vista.
     $scope.paginador.cambioDePagina();
-
-    $scope.meGusta = function(band){
-        BandsBackend.favorito(band.id).then(
-            function(respuesta){
-                //albumes.likes++;
-            }
-        );
-    };
 });
 
 

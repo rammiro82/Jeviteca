@@ -2,12 +2,9 @@
 angular.module("jeviteca", ["ngRoute", "angular-loading-bar", "ui.bootstrap", "LocalStorageModule"]);
 
 angular.module("jeviteca").config(function(AlbumsBackendProvider, BandsBackendProvider, GenresBackendProvider, Properties) {
-    AlbumsBackendProvider.habilitarPeticionesCors();
-    BandsBackendProvider.habilitarPeticionesCors();
-    GenresBackendProvider.habilitarPeticionesCors();
-    AlbumsBackendProvider.establecerUrlBackend(Properties.backendUrlData);
-    BandsBackendProvider.establecerUrlBackend(Properties.backendUrlData);
-    GenresBackendProvider.establecerUrlBackend(Properties.backendUrlData);
+    AlbumsBackendProvider.establecerUrlBackend(Properties.backendUrlDataAlbums);
+    BandsBackendProvider.establecerUrlBackend(Properties.backendUrlDataBands);
+    GenresBackendProvider.establecerUrlBackend(Properties.backendUrlDataGenres);
 });
 
 // En fase de config inyectamos $routeProvider para configurar las rutas de la aplicación.

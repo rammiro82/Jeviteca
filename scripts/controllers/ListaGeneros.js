@@ -4,14 +4,6 @@ angular.module("jeviteca").controller("ListaGenerosCtrl", function($scope, Gener
 
     $scope.generos = Generos.data;
 
-
-    $scope.meGusta = function(genre){
-        GenresBackend.favorito(genre.id).then(
-            function(respuesta){
-                //albumes.likes++;
-            }
-        );
-    };
 });
 
 

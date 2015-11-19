@@ -68,39 +68,9 @@
 
         <script src="scripts/directives/ElementoBanda.js"></script>
         <script src="scripts/directives/ElementoAlbum.js"></script>
+        <script src="scripts/directives/ElementoGenero.js"></script>
 
         <script src="scripts/services/FavoriteService.js"></script>
-        <script>
 
-            $(window).load(function () {
-                var qsRegex;
-                var $grid = $('.grid').isotope({
-                    itemSelector: '.element-item',
-                    layoutMode: 'fitRows',
-                    filter: function () {
-                        return qsRegex ? $(this).text().match(qsRegex) : true;
-                    }
-                });
-                var $quicksearch = $('.quicksearch').keyup(debounce(function () {
-                    qsRegex = new RegExp($quicksearch.val(), 'gi');
-                    $grid.isotope();
-                }, 200));
-
-                function debounce(fn, threshold) {
-                    var timeout;
-                    console.log(fn);
-                    return function debounced() {
-                        if (timeout) {
-                            clearTimeout(timeout);
-                        }
-                        function delayed() {
-                            fn();
-                            timeout = null;
-                        }
-                        timeout = setTimeout(delayed, threshold || 100);
-                    };
-                }
-            });
-        </script>
     </body>
 </html>

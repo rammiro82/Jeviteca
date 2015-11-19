@@ -1,23 +1,16 @@
 
-angular.module("jeviteca").provider("AlbumsBackend", function($httpProvider){
-    var urlBackend= "";
+angular.module("jeviteca").provider("AlbumsBackend", function(){
+    var urlBackendAlbum = "";
 
     return {
-
-        habilitarPeticionesCors: function(){
-            $httpProvider.defaults.headers.post = {};
-            $httpProvider.defaults.headers.put = {};
-            $httpProvider.defaults.headers.patch = {};
-        },
-
         establecerUrlBackend: function(valor){
-            urlBackend = valor;
+            urlBackendAlbum = valor;
         },
 
         $get: ["$http", function($http){
             return{
                 listarTodosAlbumes: function(){
-                    return $http.get(urlBackend + "albums.json", {
+                    return $http.get(urlBackendAlbum, {
                         cache: "true"
                     });
                 }
