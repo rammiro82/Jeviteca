@@ -1,5 +1,5 @@
 
-angular.module("jeviteca").directive("elementoAlbum",  ["FavoriteService", function(FavoriteService) {
+angular.module("jeviteca").directive("elementoAlbum",  ["FavoriteService", "MediaService", '$window', function(FavoriteService, MediaService, $window) {
     var claveAppAlbum = "jeviteca_album_fav_";
 
     return {
@@ -27,6 +27,15 @@ angular.module("jeviteca").directive("elementoAlbum",  ["FavoriteService", funct
                 scope.isFavorite = type;
             };
 
+            scope.getWikipediaLink = function (banda) {
+                var url = MediaService.getWikiLink (banda);
+                $window.open (url, '_blank');
+            };
+
+            scope.getYoutubeLink = function (banda, track) {
+                var url = MediaService.getYoutubeLink (banda, track);
+                $window.open (url, '_blank');
+            };
         }
     };
 }]);

@@ -1,10 +1,14 @@
 
 // Controlador para listar los albumes
-angular.module("jeviteca").controller("ListaBandasCtrl", function($scope, Bandas, Utilidades) {
+angular.module("jeviteca").controller("ListaBandasCtrl", ['$scope', 'Bandas', 'MediaService', '$window', function($scope, Bandas, MediaService, $window) {
 
     var bandas = Bandas.data;
 
-    //$scope.bandas = bandas;
+    $scope.getWikipediaLink = function (banda) {
+        console.log("getWikipediaLink - ListaBandasCtrl");
+        var url = MediaService.getWikipediaLink (banda);
+        $window.open (url, '_blank');
+    };
 
     // Establecemos las propiedades del paginador.
     $scope.paginador = {
@@ -30,39 +34,6 @@ angular.module("jeviteca").controller("ListaBandasCtrl", function($scope, Bandas
         elementosPorPagina: 5
     };
 
-
     // Forzamos el cambio de página para que traiga la primera al entrar a la vista.
     $scope.paginador.cambioDePagina();
-});
-
-
-/*
- {
- "id": 1,
- "name": "Mastodon",
- "origin": "Atlanta, Georgia, Estados Unidos",
- "members": [
- {
- "name": "Troy Sanders",
- "instruments": [
- "Voz",
- "Bajo"
- ]
- },
- ...
- ],
- "albums": [
- {
- "id": 1,
- "title": "Remission",
- "year": 2002,
- "genre": {
- "id": 1,
- "name": "Sludge metal"
- },
- "image": "1-mastodon-remission.jpg"
- },...
- ]
- }
-
- */
+}]);
