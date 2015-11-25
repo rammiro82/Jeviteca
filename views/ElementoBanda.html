@@ -3,7 +3,7 @@
         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal{{ ::banda.id }}">
             +
         </button>
-        <i ng-click="getWikipediaLink(banda.name)"><img src="resources/img/wikipedia.png" alt=""/></i>
+        <i ng-click="getWikipediaLink(banda.name)"><img ng-src="resources/img/wikipedia.png" alt=""/></i>
     </td>
     <td>{{ ::banda.origin }}</td>
     <td>
@@ -32,7 +32,7 @@
                         <p>
                             {{ $index + 1 }} .- {{ ::member.name }}
                                 <div ng-repeat="instrument in member.instruments">
-                                    <img src="resources/img/instruments/{{ instrument }}.png" alt="{{ instrument }}" title="{{ instrument }}"/>
+                                    <img ng-src="resources/img/instruments/{{ instrument }}.png" alt="{{ instrument }}" title="{{ instrument }}"/>
                                 </div>
                         </p>
                     </div>
